@@ -684,7 +684,7 @@ public class StateTest {
     State appendectomy = module.getState("Appendectomy");
     appendectomy.entered = time;
     // Procedure should block
-    assertTrue( !appendectomy.process(person, time));
+    assertTrue(!appendectomy.process(person, time));
     long nextStep = time + Utilities.convertTime("days", 7);
     assertTrue(appendectomy.process(person, nextStep));
 
@@ -713,7 +713,7 @@ public class StateTest {
     assertTrue(obsValue < 400);
   }
 
-    @Test
+  @Test
   public void observation() throws Exception {
     Module module = TestHelper.getFixture("observation.json");
 

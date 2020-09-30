@@ -430,7 +430,7 @@ public abstract class State implements Cloneable, Serializable {
     }
   }
 
-  public abstract static class Delayable extends State {
+  public abstract static class Delayable extends StateWithDistribution {
     // next is "transient" in the sense that it represents object state
     // as opposed to the other fields which represent object definition
     // hence it is not set in clone()
@@ -463,7 +463,7 @@ public abstract class State implements Cloneable, Serializable {
     }
   }
 
-  public abstract static class LegacyStateWithUnitlessRV extends State {
+  public abstract static class LegacyStateWithUnitlessRV extends StateWithDistribution {
     protected Range range;
     protected Exact exact;
 
@@ -487,6 +487,22 @@ public abstract class State implements Cloneable, Serializable {
       return false;
     }
   }
+  
+  /**
+   * Base class for all states that include a GMF 2.0 distribution.
+   */
+  public abstract static class StateWithDistribution extends State {
+    protected Distribution distribution;
+
+    @Override
+    protected void initialize(Module module, String name, JsonObject definition) {
+      super.initialize(module, name, definition);
+      if (distribution != null && !distribution.validate()) {
+        throw new IllegalStateException(
+            String.format("State %s contains an invalid distribution", this.name));
+      }
+    }
+  }
 
   /**
    * The Delay state type introduces a pre-configured temporal delay in the module's timeline. As a
@@ -508,17 +524,7 @@ public abstract class State implements Cloneable, Serializable {
     private RangeWithUnit<Long> range;
     private ExactWithUnit<Long> exact;
     // For GMF 2.0 Support
-    private Distribution distribution;
     private String unit;
-
-    @Override
-    protected void initialize(Module module, String name, JsonObject definition) {
-      super.initialize(module, name, definition);
-      if (distribution != null && !distribution.validate()) {
-        throw new IllegalStateException(
-            String.format("State %s contains an invalid distribution", this.name));
-      }
-    }
 
     @Override
     public Delay clone() {
@@ -602,7 +608,7 @@ public abstract class State implements Cloneable, Serializable {
    * allows for arbitrary text or values to be set on an attribute, or for the attribute to be
    * reset.
    */
-  public static class SetAttribute extends State {
+  public static class SetAttribute extends StateWithDistribution {
     private String attribute;
     // For GMF 1.0 Support
     private Object value;
@@ -611,8 +617,6 @@ public abstract class State implements Cloneable, Serializable {
     private transient ThreadLocal<ExpressionProcessor> threadExpProcessor;
     private String seriesData;
     private double period;
-    // For GMF 2.0 Support
-    private Distribution distribution;
 
     
     private ThreadLocal<ExpressionProcessor> getExpProcessor() {
@@ -645,11 +649,6 @@ public abstract class State implements Cloneable, Serializable {
       // Series data default period is 1.0s
       if (period <= 0.0) {
         period = 1.0;
-      }
-
-      if (distribution != null && !distribution.validate()) {
-        throw new IllegalStateException(
-            String.format("State %s contains an invalid distribution", this.name));
       }
     }
 
@@ -1431,17 +1430,7 @@ public abstract class State implements Cloneable, Serializable {
     private String assignToAttribute;
     private Long stop;
     // For GMF 2.0 Support
-    private Distribution distribution;
     private String unit;
-
-    @Override
-    protected void initialize(Module module, String name, JsonObject definition) {
-      super.initialize(module, name, definition);
-      if (distribution != null && !distribution.validate()) {
-        throw new IllegalStateException(
-            String.format("State %s contains an invalid distribution", this.name));
-      }
-    }
 
     @Override
     public Procedure clone() {
@@ -1534,17 +1523,7 @@ public abstract class State implements Cloneable, Serializable {
     private org.mitre.synthea.world.concepts.VitalSign vitalSign;
     private String unit;
     private String expression;
-    private Distribution distribution;
     private transient ThreadLocal<ExpressionProcessor> threadExpProcessor;
-
-    @Override
-    protected void initialize(Module module, String name, JsonObject definition) {
-      super.initialize(module, name, definition);
-      if (distribution != null && !distribution.validate()) {
-        throw new IllegalStateException(
-            String.format("State %s contains an invalid distribution", this.name));
-      }
-    }
 
     private ThreadLocal<ExpressionProcessor> getExpProcessor() {
       // If the ThreadLocal instance hasn't been created yet, create it now
@@ -1641,17 +1620,7 @@ public abstract class State implements Cloneable, Serializable {
     private String category;
     private String unit;
     private String expression;
-    private Distribution distribution;
     private transient ThreadLocal<ExpressionProcessor> threadExpProcessor;
-
-    @Override
-    protected void initialize(Module module, String name, JsonObject definition) {
-      super.initialize(module, name, definition);
-      if (distribution != null && !distribution.validate()) {
-        throw new IllegalStateException(
-            String.format("State %s contains an invalid distribution", this.name));
-      }
-    }
 
     private ThreadLocal<ExpressionProcessor> getExpProcessor() {
       // If the ThreadLocal instance hasn't been created yet, create it now
@@ -1927,7 +1896,6 @@ public abstract class State implements Cloneable, Serializable {
     private String cause;
     private Double probability;
     public boolean addressed;
-    private Distribution distribution;
 
     @Override
     protected void initialize(Module module, String name, JsonObject definition) {
@@ -1939,10 +1907,6 @@ public abstract class State implements Cloneable, Serializable {
         probability = 1.0;
       }
       addressed = false;
-      if (distribution != null && !distribution.validate()) {
-        throw new IllegalStateException(
-            String.format("State %s contains an invalid distribution", this.name));
-      }
     }
 
     @Override
