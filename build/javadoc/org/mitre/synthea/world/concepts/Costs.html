@@ -19,7 +19,7 @@
 <script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
 </head>
 <body class="class-declaration">
-<script type="text/javascript">var data = {"i0":9,"i1":9,"i2":9};
+<script type="text/javascript">var data = {"i0":9,"i1":9,"i2":9,"i3":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -160,6 +160,13 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr class="altColor" id="i2">
+<td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasSpecifiedCost(java.lang.String)">hasSpecifiedCost</a></span>&#8203;(java.lang.String&nbsp;code)</code></th>
+<td class="colLast">
+<div class="block">Returns Whether or not this code has an ossociated specified cost in one of the cost CSVs.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#loadCostData()">loadCostData</a></span>()</code></th>
 <td class="colLast">
@@ -237,6 +244,19 @@ extends java.lang.Object</pre>
 <dd><code>entry</code> - HealthRecord.Entry</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the entry has a cost; false otherwise</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasSpecifiedCost(java.lang.String)">hasSpecifiedCost</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasSpecifiedCost</span>&#8203;(<span class="arguments">java.lang.String&nbsp;code)</span></div>
+<div class="block">Returns Whether or not this code has an ossociated specified cost in one of the cost CSVs.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>code</code> - String</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the code has a sepcified cost; false otherwise</dd>
 </dl>
 </section>
 </li>
