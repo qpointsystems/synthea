@@ -1,5 +1,4 @@
 
-org.mitre.synthea.datastore
 org.mitre.synthea.editors
 org.mitre.synthea.engine
 org.mitre.synthea.export

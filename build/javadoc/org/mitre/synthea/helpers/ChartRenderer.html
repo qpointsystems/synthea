@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/mitre/synthea/helpers/Attributes.Inventory.html" title="class in org.mitre.synthea.helpers"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.ChartConfig.html" title="class in org.mitre.synthea.helpers"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.Base64EncodedChart.html" title="class in org.mitre.synthea.helpers"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/mitre/synthea/helpers/ChartRenderer.html" target="_top">Frames</a></li>
@@ -129,35 +129,39 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.Base64EncodedChart.html" title="class in org.mitre.synthea.helpers">ChartRenderer.Base64EncodedChart</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.ChartConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.ChartConfig</a></span></code>
 <div class="block">POJO configuration for a chart.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.ChartType.html" title="enum in org.mitre.synthea.helpers">ChartRenderer.ChartType</a></span></code>
 <div class="block">Enumeration of supported chart types.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.MultiTableChartConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.MultiTableChartConfig</a></span></code>
 <div class="block">POJO configuration for a chart with data from a MultiTable.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.MultiTableSeriesConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.MultiTableSeriesConfig</a></span></code>
 <div class="block">POJO configuration for a chart series with data from a MultiTable.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.PersonChartConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.PersonChartConfig</a></span></code>
 <div class="block">POJO configuration for a chart with data from a Person object.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.PersonSeriesConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.PersonSeriesConfig</a></span></code>
 <div class="block">POJO configuration for a chart series with data from a Person object.</div>
@@ -210,14 +214,14 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colFirst"><code>static <a href="../../../../org/mitre/synthea/helpers/ChartRenderer.Base64EncodedChart.html" title="class in org.mitre.synthea.helpers">ChartRenderer.Base64EncodedChart</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.html#drawChartAsBase64-org.simulator.math.odes.MultiTable-org.mitre.synthea.helpers.ChartRenderer.MultiTableChartConfig-">drawChartAsBase64</a></span>(org.simulator.math.odes.MultiTable&nbsp;table,
                  <a href="../../../../org/mitre/synthea/helpers/ChartRenderer.MultiTableChartConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.MultiTableChartConfig</a>&nbsp;config)</code>
 <div class="block">Draw a JFreeChart to a base64 encoded image based on values from a MultiTable.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colFirst"><code>static <a href="../../../../org/mitre/synthea/helpers/ChartRenderer.Base64EncodedChart.html" title="class in org.mitre.synthea.helpers">ChartRenderer.Base64EncodedChart</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.html#drawChartAsBase64-org.mitre.synthea.world.agents.Person-org.mitre.synthea.helpers.ChartRenderer.PersonChartConfig-">drawChartAsBase64</a></span>(<a href="../../../../org/mitre/synthea/world/agents/Person.html" title="class in org.mitre.synthea.world.agents">Person</a>&nbsp;person,
                  <a href="../../../../org/mitre/synthea/helpers/ChartRenderer.PersonChartConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.PersonChartConfig</a>&nbsp;config)</code>
 <div class="block">Draw a JFreeChart to a base64 encoded image based on values from a MultiTable.</div>
@@ -346,9 +350,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>drawChartAsBase64</h4>
-<pre>public static&nbsp;java.lang.String&nbsp;drawChartAsBase64(org.simulator.math.odes.MultiTable&nbsp;table,
-                                                 <a href="../../../../org/mitre/synthea/helpers/ChartRenderer.MultiTableChartConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.MultiTableChartConfig</a>&nbsp;config)
-                                          throws java.io.IOException</pre>
+<pre>public static&nbsp;<a href="../../../../org/mitre/synthea/helpers/ChartRenderer.Base64EncodedChart.html" title="class in org.mitre.synthea.helpers">ChartRenderer.Base64EncodedChart</a>&nbsp;drawChartAsBase64(org.simulator.math.odes.MultiTable&nbsp;table,
+                                                                 <a href="../../../../org/mitre/synthea/helpers/ChartRenderer.MultiTableChartConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.MultiTableChartConfig</a>&nbsp;config)
+                                                          throws java.io.IOException</pre>
 <div class="block">Draw a JFreeChart to a base64 encoded image based on values from a MultiTable.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -365,9 +369,9 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>drawChartAsBase64</h4>
-<pre>public static&nbsp;java.lang.String&nbsp;drawChartAsBase64(<a href="../../../../org/mitre/synthea/world/agents/Person.html" title="class in org.mitre.synthea.world.agents">Person</a>&nbsp;person,
-                                                 <a href="../../../../org/mitre/synthea/helpers/ChartRenderer.PersonChartConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.PersonChartConfig</a>&nbsp;config)
-                                          throws java.io.IOException</pre>
+<pre>public static&nbsp;<a href="../../../../org/mitre/synthea/helpers/ChartRenderer.Base64EncodedChart.html" title="class in org.mitre.synthea.helpers">ChartRenderer.Base64EncodedChart</a>&nbsp;drawChartAsBase64(<a href="../../../../org/mitre/synthea/world/agents/Person.html" title="class in org.mitre.synthea.world.agents">Person</a>&nbsp;person,
+                                                                 <a href="../../../../org/mitre/synthea/helpers/ChartRenderer.PersonChartConfig.html" title="class in org.mitre.synthea.helpers">ChartRenderer.PersonChartConfig</a>&nbsp;config)
+                                                          throws java.io.IOException</pre>
 <div class="block">Draw a JFreeChart to a base64 encoded image based on values from a MultiTable.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -406,7 +410,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/mitre/synthea/helpers/Attributes.Inventory.html" title="class in org.mitre.synthea.helpers"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.ChartConfig.html" title="class in org.mitre.synthea.helpers"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/mitre/synthea/helpers/ChartRenderer.Base64EncodedChart.html" title="class in org.mitre.synthea.helpers"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/mitre/synthea/helpers/ChartRenderer.html" target="_top">Frames</a></li>

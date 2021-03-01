@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,7 +73,7 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.classes.inherited.from.class.org.mitre.synthea.engine.State">Nested</a>&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.org.mitre.synthea.engine.State">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.org.mitre.synthea.engine.State.LegacyStateWithUnitlessRV">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
@@ -101,7 +101,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../../org/mitre/synthea/engine/State.html" title="class in org.mitre.synthea.engine">org.mitre.synthea.engine.State</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html" title="class in org.mitre.synthea.engine">org.mitre.synthea.engine.State.LegacyStateWithUnitlessRV</a></li>
+<li>
+<ul class="inheritance">
 <li>org.mitre.synthea.engine.State.Observation</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -121,7 +126,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public static class <span class="typeNameLabel">State.Observation</span>
-extends <a href="../../../../org/mitre/synthea/engine/State.html" title="class in org.mitre.synthea.engine">State</a></pre>
+extends <a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html" title="class in org.mitre.synthea.engine">State.LegacyStateWithUnitlessRV</a></pre>
 <div class="block">The Observation state type indicates a point in the module where an observation is recorded.
  Observations include clinical findings, vital signs, lab tests, etc. Observation states may
  only be processed during an Encounter, and so must occur after the target Encounter state and
@@ -173,7 +178,7 @@ extends <a href="../../../../org/mitre/synthea/engine/State.html" title="class i
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from class&nbsp;org.mitre.synthea.engine.<a href="../../../../org/mitre/synthea/engine/State.html" title="class in org.mitre.synthea.engine">State</a></h3>
-<code><a href="../../../../org/mitre/synthea/engine/State.AllergyEnd.html" title="class in org.mitre.synthea.engine">State.AllergyEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.AllergyOnset.html" title="class in org.mitre.synthea.engine">State.AllergyOnset</a>, <a href="../../../../org/mitre/synthea/engine/State.CallSubmodule.html" title="class in org.mitre.synthea.engine">State.CallSubmodule</a>, <a href="../../../../org/mitre/synthea/engine/State.CarePlanEnd.html" title="class in org.mitre.synthea.engine">State.CarePlanEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.CarePlanStart.html" title="class in org.mitre.synthea.engine">State.CarePlanStart</a>, <a href="../../../../org/mitre/synthea/engine/State.ConditionEnd.html" title="class in org.mitre.synthea.engine">State.ConditionEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.ConditionOnset.html" title="class in org.mitre.synthea.engine">State.ConditionOnset</a>, <a href="../../../../org/mitre/synthea/engine/State.Counter.html" title="class in org.mitre.synthea.engine">State.Counter</a>, <a href="../../../../org/mitre/synthea/engine/State.Death.html" title="class in org.mitre.synthea.engine">State.Death</a>, <a href="../../../../org/mitre/synthea/engine/State.Delay.html" title="class in org.mitre.synthea.engine">State.Delay</a>, <a href="../../../../org/mitre/synthea/engine/State.Delayable.html" title="class in org.mitre.synthea.engine">State.Delayable</a>, <a href="../../../../org/mitre/synthea/engine/State.Device.html" title="class in org.mitre.synthea.engine">State.Device</a>, <a href="../../../../org/mitre/synthea/engine/State.DeviceEnd.html" title="class in org.mitre.synthea.engine">State.DeviceEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.DiagnosticReport.html" title="class in org.mitre.synthea.engine">State.DiagnosticReport</a>, <a href="../../../../org/mitre/synthea/engine/State.Encounter.html" title="class in org.mitre.synthea.engine">State.Encounter</a>, <a href="../../../../org/mitre/synthea/engine/State.EncounterEnd.html" title="class in org.mitre.synthea.engine">State.EncounterEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.Guard.html" title="class in org.mitre.synthea.engine">State.Guard</a>, <a href="../../../../org/mitre/synthea/engine/State.ImagingStudy.html" title="class in org.mitre.synthea.engine">State.ImagingStudy</a>, <a href="../../../../org/mitre/synthea/engine/State.Initial.html" title="class in org.mitre.synthea.engine">State.Initial</a>, <a href="../../../../org/mitre/synthea/engine/State.MedicationEnd.html" title="class in org.mitre.synthea.engine">State.MedicationEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.MedicationOrder.html" title="class in org.mitre.synthea.engine">State.MedicationOrder</a>, <a href="../../../../org/mitre/synthea/engine/State.MultiObservation.html" title="class in org.mitre.synthea.engine">State.MultiObservation</a>, <a href="../../../../org/mitre/synthea/engine/State.Observation.html" title="class in org.mitre.synthea.engine">State.Observation</a>, <a href="../../../../org/mitre/synthea/engine/State.Physiology.html" title="class in org.mitre.synthea.engine">State.Physiology</a>, <a href="../../../../org/mitre/synthea/engine/State.Procedure.html" title="class in org.mitre.synthea.engine">State.Procedure</a>, <a href="../../../../org/mitre/synthea/engine/State.SetAttribute.html" title="class in org.mitre.synthea.engine">State.SetAttribute</a>, <a href="../../../../org/mitre/synthea/engine/State.Simple.html" title="class in org.mitre.synthea.engine">State.Simple</a>, <a href="../../../../org/mitre/synthea/engine/State.SupplyList.html" title="class in org.mitre.synthea.engine">State.SupplyList</a>, <a href="../../../../org/mitre/synthea/engine/State.Symptom.html" title="class in org.mitre.synthea.engine">State.Symptom</a>, <a href="../../../../org/mitre/synthea/engine/State.Terminal.html" title="class in org.mitre.synthea.engine">State.Terminal</a>, <a href="../../../../org/mitre/synthea/engine/State.VitalSign.html" title="class in org.mitre.synthea.engine">State.VitalSign</a></code></li>
+<code><a href="../../../../org/mitre/synthea/engine/State.AllergyEnd.html" title="class in org.mitre.synthea.engine">State.AllergyEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.AllergyOnset.html" title="class in org.mitre.synthea.engine">State.AllergyOnset</a>, <a href="../../../../org/mitre/synthea/engine/State.CallSubmodule.html" title="class in org.mitre.synthea.engine">State.CallSubmodule</a>, <a href="../../../../org/mitre/synthea/engine/State.CarePlanEnd.html" title="class in org.mitre.synthea.engine">State.CarePlanEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.CarePlanStart.html" title="class in org.mitre.synthea.engine">State.CarePlanStart</a>, <a href="../../../../org/mitre/synthea/engine/State.ConditionEnd.html" title="class in org.mitre.synthea.engine">State.ConditionEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.ConditionOnset.html" title="class in org.mitre.synthea.engine">State.ConditionOnset</a>, <a href="../../../../org/mitre/synthea/engine/State.Counter.html" title="class in org.mitre.synthea.engine">State.Counter</a>, <a href="../../../../org/mitre/synthea/engine/State.Death.html" title="class in org.mitre.synthea.engine">State.Death</a>, <a href="../../../../org/mitre/synthea/engine/State.Delay.html" title="class in org.mitre.synthea.engine">State.Delay</a>, <a href="../../../../org/mitre/synthea/engine/State.Delayable.html" title="class in org.mitre.synthea.engine">State.Delayable</a>, <a href="../../../../org/mitre/synthea/engine/State.Device.html" title="class in org.mitre.synthea.engine">State.Device</a>, <a href="../../../../org/mitre/synthea/engine/State.DeviceEnd.html" title="class in org.mitre.synthea.engine">State.DeviceEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.DiagnosticReport.html" title="class in org.mitre.synthea.engine">State.DiagnosticReport</a>, <a href="../../../../org/mitre/synthea/engine/State.Encounter.html" title="class in org.mitre.synthea.engine">State.Encounter</a>, <a href="../../../../org/mitre/synthea/engine/State.EncounterEnd.html" title="class in org.mitre.synthea.engine">State.EncounterEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.Guard.html" title="class in org.mitre.synthea.engine">State.Guard</a>, <a href="../../../../org/mitre/synthea/engine/State.ImagingStudy.html" title="class in org.mitre.synthea.engine">State.ImagingStudy</a>, <a href="../../../../org/mitre/synthea/engine/State.Initial.html" title="class in org.mitre.synthea.engine">State.Initial</a>, <a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html" title="class in org.mitre.synthea.engine">State.LegacyStateWithUnitlessRV</a>, <a href="../../../../org/mitre/synthea/engine/State.MedicationEnd.html" title="class in org.mitre.synthea.engine">State.MedicationEnd</a>, <a href="../../../../org/mitre/synthea/engine/State.MedicationOrder.html" title="class in org.mitre.synthea.engine">State.MedicationOrder</a>, <a href="../../../../org/mitre/synthea/engine/State.MultiObservation.html" title="class in org.mitre.synthea.engine">State.MultiObservation</a>, <a href="../../../../org/mitre/synthea/engine/State.Observation.html" title="class in org.mitre.synthea.engine">State.Observation</a>, <a href="../../../../org/mitre/synthea/engine/State.Physiology.html" title="class in org.mitre.synthea.engine">State.Physiology</a>, <a href="../../../../org/mitre/synthea/engine/State.Procedure.html" title="class in org.mitre.synthea.engine">State.Procedure</a>, <a href="../../../../org/mitre/synthea/engine/State.SetAttribute.html" title="class in org.mitre.synthea.engine">State.SetAttribute</a>, <a href="../../../../org/mitre/synthea/engine/State.Simple.html" title="class in org.mitre.synthea.engine">State.Simple</a>, <a href="../../../../org/mitre/synthea/engine/State.SupplyList.html" title="class in org.mitre.synthea.engine">State.SupplyList</a>, <a href="../../../../org/mitre/synthea/engine/State.Symptom.html" title="class in org.mitre.synthea.engine">State.Symptom</a>, <a href="../../../../org/mitre/synthea/engine/State.Terminal.html" title="class in org.mitre.synthea.engine">State.Terminal</a>, <a href="../../../../org/mitre/synthea/engine/State.VitalSign.html" title="class in org.mitre.synthea.engine">State.VitalSign</a></code></li>
 </ul>
 </li>
 </ul>
@@ -183,6 +188,13 @@ extends <a href="../../../../org/mitre/synthea/engine/State.html" title="class i
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.org.mitre.synthea.engine.State.LegacyStateWithUnitlessRV">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.mitre.synthea.engine.<a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html" title="class in org.mitre.synthea.engine">State.LegacyStateWithUnitlessRV</a></h3>
+<code><a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html#exact">exact</a>, <a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html#range">range</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.org.mitre.synthea.engine.State">
 <!--   -->
@@ -229,6 +241,12 @@ extends <a href="../../../../org/mitre/synthea/engine/State.html" title="class i
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/engine/State.Observation.html#initialize-org.mitre.synthea.engine.Module-java.lang.String-com.google.gson.JsonObject-">initialize</a></span>(<a href="../../../../org/mitre/synthea/engine/Module.html" title="class in org.mitre.synthea.engine">Module</a>&nbsp;module,
+          java.lang.String&nbsp;name,
+          com.google.gson.JsonObject&nbsp;definition)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/mitre/synthea/engine/State.Observation.html#process-org.mitre.synthea.world.agents.Person-long-">process</a></span>(<a href="../../../../org/mitre/synthea/world/agents/Person.html" title="class in org.mitre.synthea.world.agents">Person</a>&nbsp;person,
        long&nbsp;time)</code>
@@ -237,11 +255,18 @@ extends <a href="../../../../org/mitre/synthea/engine/State.html" title="class i
 </tr>
 </table>
 <ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.mitre.synthea.engine.State.LegacyStateWithUnitlessRV">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.mitre.synthea.engine.<a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html" title="class in org.mitre.synthea.engine">State.LegacyStateWithUnitlessRV</a></h3>
+<code><a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html#isLegacyGmf--">isLegacyGmf</a></code></li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.mitre.synthea.engine.State">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.mitre.synthea.engine.<a href="../../../../org/mitre/synthea/engine/State.html" title="class in org.mitre.synthea.engine">State</a></h3>
-<code><a href="../../../../org/mitre/synthea/engine/State.html#build-org.mitre.synthea.engine.Module-java.lang.String-com.google.gson.JsonObject-">build</a>, <a href="../../../../org/mitre/synthea/engine/State.html#getTransition--">getTransition</a>, <a href="../../../../org/mitre/synthea/engine/State.html#initialize-org.mitre.synthea.engine.Module-java.lang.String-com.google.gson.JsonObject-">initialize</a>, <a href="../../../../org/mitre/synthea/engine/State.html#run-org.mitre.synthea.world.agents.Person-long-">run</a>, <a href="../../../../org/mitre/synthea/engine/State.html#toString--">toString</a>, <a href="../../../../org/mitre/synthea/engine/State.html#transition-org.mitre.synthea.world.agents.Person-long-">transition</a></code></li>
+<code><a href="../../../../org/mitre/synthea/engine/State.html#build-org.mitre.synthea.engine.Module-java.lang.String-com.google.gson.JsonObject-">build</a>, <a href="../../../../org/mitre/synthea/engine/State.html#getTransition--">getTransition</a>, <a href="../../../../org/mitre/synthea/engine/State.html#run-org.mitre.synthea.world.agents.Person-long-">run</a>, <a href="../../../../org/mitre/synthea/engine/State.html#toString--">toString</a>, <a href="../../../../org/mitre/synthea/engine/State.html#transition-org.mitre.synthea.world.agents.Person-long-">transition</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -281,6 +306,21 @@ extends <a href="../../../../org/mitre/synthea/engine/State.html" title="class i
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="initialize-org.mitre.synthea.engine.Module-java.lang.String-com.google.gson.JsonObject-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>initialize</h4>
+<pre>protected&nbsp;void&nbsp;initialize(<a href="../../../../org/mitre/synthea/engine/Module.html" title="class in org.mitre.synthea.engine">Module</a>&nbsp;module,
+                          java.lang.String&nbsp;name,
+                          com.google.gson.JsonObject&nbsp;definition)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../org/mitre/synthea/engine/State.html#initialize-org.mitre.synthea.engine.Module-java.lang.String-com.google.gson.JsonObject-">initialize</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/mitre/synthea/engine/State.html" title="class in org.mitre.synthea.engine">State</a></code></dd>
+</dl>
+</li>
+</ul>
 <a name="clone--">
 <!--   -->
 </a>
@@ -291,10 +331,14 @@ extends <a href="../../../../org/mitre/synthea/engine/State.html" title="class i
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../org/mitre/synthea/engine/State.html#clone--">State</a></code></span></div>
 <div class="block">clone() should copy all the necessary variables of this State so that it can be correctly
  executed and modified without altering the original copy. So for example, 'entered' and
- 'exited' times should not be copied so the clone can be cleanly executed.</div>
+ 'exited' times should not be copied so the clone can be cleanly executed.
+ Implementation note: the base Object.clone() copies over all fields automatically
+ (as a shallow copy), so we don't need to do that ourselves. Instead, we should 
+ 1. explicitly null out any fields that should not be copied, such as entered/exited
+ 2. deep copy mutable reference types, if necessary.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/mitre/synthea/engine/State.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/mitre/synthea/engine/State.html" title="class in org.mitre.synthea.engine">State</a></code></dd>
+<dd><code><a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/mitre/synthea/engine/State.LegacyStateWithUnitlessRV.html" title="class in org.mitre.synthea.engine">State.LegacyStateWithUnitlessRV</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -375,7 +419,7 @@ extends <a href="../../../../org/mitre/synthea/engine/State.html" title="class i
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.classes.inherited.from.class.org.mitre.synthea.engine.State">Nested</a>&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.org.mitre.synthea.engine.State">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.org.mitre.synthea.engine.State.LegacyStateWithUnitlessRV">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
