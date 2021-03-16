@@ -68,6 +68,8 @@ public class HL7V2Exporter {
     private ADT_A03 adt;
     private List<String> customSegs = new ArrayList();
 
+    private static AtomicInteger msgCounter = new AtomicInteger(1);
+    
     public static HL7V2Exporter getInstance() {
         return new HL7V2Exporter();
     }
@@ -151,9 +153,9 @@ public class HL7V2Exporter {
         return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
     }
 
-    private static String getSequenceNumber() {
-        String facilityNumberPrefix = "9999";
-        return facilityNumberPrefix.concat(getCurrentTimeStamp());
+    private static synchronized String generateControlId() {
+        String controlId = StringUtils.leftPad(String.valueOf(msgCounter.incrementAndGet()),7,'0');
+        return controlId;
     }
 
     private void generateMSH(String curDT) throws DataTypeException {
@@ -169,7 +171,7 @@ public class HL7V2Exporter {
         msh.getReceivingFacility().getNamespaceID().setValue(CW_NAMESPACE_ID);
         msh.getReceivingFacility().getUniversalID().setValue("YYY");
         msh.getDateTimeOfMessage().getTime().setValue(curDT);
-        msh.getMessageControlID().setValue(getSequenceNumber());
+        msh.getMessageControlID().setValue(generateControlId());
         msh.getVersionID().getVersionID().setValue(HL7_VERSION);
     }
 
