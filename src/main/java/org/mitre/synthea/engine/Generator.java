@@ -291,7 +291,13 @@ public class Generator implements RandomNumberGenerator {
       Config.set("generate.append_numbers_to_person_names", "false");
     }
 
-    ExecutorService threadPool = Executors.newFixedThreadPool(8);
+    // Fetch the configured thread-pool size, defaulting to 8 if the config is not present
+    int configuredThreadPoolSize = Integer.parseInt(Config.get("generate.thread_pool_size"));
+    
+    if (configuredThreadPoolSize == -1) {
+        configuredThreadPoolSize = Runtime.getRuntime().availableProcessors();
+    }
+    ExecutorService threadPool = Executors.newFixedThreadPool(configuredThreadPoolSize);
 
     if (options.initialPopulationSnapshotPath != null) {
       FileInputStream fis = null;

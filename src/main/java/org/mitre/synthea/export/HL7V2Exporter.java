@@ -257,6 +257,9 @@ public class HL7V2Exporter {
 
     private void processEncounters(Person person) throws DataTypeException, HL7Exception {
         List<HealthRecord.Encounter> encounters = (List<HealthRecord.Encounter>) person.record.encounters;
+        if (encounters.isEmpty()) {
+            return;
+        }
         Encounter e = encounters.get(0);
         PV1 pv1 = adt.getPV1();
         pv1.getPv11_SetIDPV1().setValue("1");
