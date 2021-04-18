@@ -2,6 +2,11 @@ package org.mitre.synthea.export;
 
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,6 +51,8 @@ public abstract class Exporter {
   private static final List<Pair<Person, Long>> deferredExports = 
           Collections.synchronizedList(new LinkedList<>());
 
+  private static AmazonS3 s3Conn = null;
+    
   /**
    * Runtime configuration of the record exporter.
    */
@@ -110,6 +117,18 @@ public abstract class Exporter {
     }
   }
   
+    private static void connectToS3() {
+        String accessKey = Config.get("s3.access-key");
+        String secretKey = Config.get("s3.secret-key");
+        String s3Endpoint = Config.get("s3.service-endpoint");
+        String s3RegionSel = Config.get("s3.region-selector");
+
+        BasicAWSCredentials linodeCreds = new BasicAWSCredentials(accessKey, secretKey);
+        s3Conn = AmazonS3ClientBuilder.standard()
+                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(s3Endpoint, s3RegionSel))
+                .withCredentials(new AWSStaticCredentialsProvider(linodeCreds)).build();
+    }
+    
   /**
    * Export a single patient, into all the formats supported. (Formats may be enabled or disabled by
    * configuration)
@@ -119,6 +138,9 @@ public abstract class Exporter {
    * @param options Runtime exporter options
    */
   public static void export(Person person, long stopTime, ExporterRuntimeOptions options) {
+    if (s3Conn==null) {
+        connectToS3();
+    }
     if (options.deferExports) {
       deferredExports.add(new ImmutablePair<Person, Long>(person, stopTime));
     } else {
@@ -327,7 +349,16 @@ public abstract class Exporter {
    */
   private static void writeNewFile(Path file, String contents) {
     try {
-      Files.write(file, Collections.singleton(contents), StandardOpenOption.CREATE_NEW);
+      if (Config.getAsBoolean("exporter.useS3")) {
+          //Grab the full output path (e.g., ./output/ccda/...)
+          String objectKey = file.toString();
+          //Strip the leading ./
+          objectKey = objectKey.substring(2, objectKey.length());
+          //Put the file out to S3
+          s3Conn.putObject(Config.get("exporter.s3.output_bucket"), objectKey, contents);
+      } else {
+        Files.write(file, Collections.singleton(contents), StandardOpenOption.CREATE_NEW);
+      }
     } catch (IOException e) {
       e.printStackTrace();
     }

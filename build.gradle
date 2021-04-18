@@ -89,7 +89,9 @@ dependencies {
 
   implementation 'ca.uhn.hapi:hapi-base:2.3'
   implementation 'ca.uhn.hapi:hapi-structures-v251:2.3'
-    
+  
+  implementation 'com.amazonaws:aws-java-sdk-s3:1.11.628'
+   
   // Use JUnit test framework
   testImplementation 'junit:junit:4.12'
   testImplementation fileTree(dir: 'lib/mdhtruntime/mdht', include: '*.jar')
